@@ -42,8 +42,6 @@ def new_game():
 
 
 def ask_questions(category):
-    # global score
-    #print category.all_bank[0][0]
     for i in range(len(category.all_bank)):
         print "Your score is currently " + str(player1.score)
         print category.all_bank[i][0]
