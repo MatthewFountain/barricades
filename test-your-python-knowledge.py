@@ -7,18 +7,20 @@ questions_asked = []
 
 print(questions.Boolean_tables_questions)
 
+
+
 # This is an empty bank
 Multiple_choice_questions = [{Category - Key: [(Q & A - tuple), (Q & A - tuple2)]}]
 
 
 def greeting():
-    #Cue music and greeting-voice-over
-    #Cue snake hissing
+    # Cue music and greeting-voice-over
+    # Cue snake hissing
     greeting = raw_input("Welcome to Test Your Python Knowledge!  Dare to try?")
 
 
 def overview():
-    #Cue overview-voice-over:
+    # Cue overview-voice-over:
     overview = raw_input(“There
     are
     64
@@ -46,8 +48,8 @@ def overview():
 
 
 def inventory():
-    #Within Total_Multiple_choice_questions[], there are 16 dictionaries, one for each category.
-    #Within each dictionary, there is a key--which is its category name-- and a value, which is a list
+    # Within Total_Multiple_choice_questions[], there are 16 dictionaries, one for each category.
+    # Within each dictionary, there is a key--which is its category name-- and a value, which is a list
     #of nine tuples. Each tuple contains a question and answer.
     #Multiple_choice_questions[] is an empty list. Each time inventory() is called, the total number of tuples
     #(questions) in Multiple_choice_questions[] is added up.  Which should be something like:
@@ -95,8 +97,8 @@ def inventory():
             question()
 
 
-#Question: do I send a question at the end of the inventory function or at the beginning of question function?
-#What about terms/categories?
+# Question: do I send a question at the end of the inventory function or at the beginning of question function?
+# What about terms/categories?
 
 def question():
     Total_test.random
