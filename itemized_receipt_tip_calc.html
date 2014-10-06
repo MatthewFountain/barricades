@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Itemized receipt tip calculator</title>
+</head>
+<body>
+<script>
+//testing
+//var receipt = {};
+//var new_item = prompt("What is the item on the receipt?");
+//var new_cost = prompt("What is the cost of the " + new_item + "?");
+//receipt.new_item = new_cost;
+//alert(receipt.new_item);
+
+//test receipt object
+var receipt = {
+    "chicken": 8.00,
+    "soda": 1.00
+};
+
+//main program to calculate how much each person at the table owes
+var calculate = function () {
+    //finds out how many people are in the meal party
+    var num_party = parseInt(prompt("How many people are in your party?"));
+    //creates array from 1 to n of people in the party
+    var all_patrons = [];
+    //loop to create an array of all patrons with their name, items of their meal, and how much they want to tip
+    for (var party = 1; party < num_party + 1; party++) {
+        var name = prompt("Patron number " + party + " what is your name?");
+        var new_patron = [name, ];
+        //function to find out which item(s) the patron ordered
+        var create_meal = function () {
+            additional = "y";
+            var meal = [];
+            while (additional === "y") {
+                var item = prompt(name + ", what did you order?");
+                //adds the cost of the item to the patron's array
+                if (item in receipt) {
+                    meal.push(receipt[item]);
+                    additional = prompt("Anything else? y/n");
+                }
+                else {
+                    alert("That wasn't on the receipt!");
+//                    create_meal();
+                }
+            }
+            //adds meal to the particular patron's array
+            new_patron.push(meal);
+            //asks patron how much they want to tip
+            if (num_party > 6) {
+                alert("Default tip will be 20%.");
+                var tip = .20;
+                new_patron.push(tip);}
+            else{
+                tip = prompt(name + ", what percentage will you tip? (Use decimals, like .20) ");
+                //adds tip to the particular patron's array
+                new_patron.push(tip);
+            }
+            //function that calculates how much the customer owes
+            var calc_total = function () {
+            var subtotal = 0;
+            for (var i in meal) {
+              subtotal += +meal[i];
+            }
+            var meal_total = parseFloat(subtotal) * (1 + parseFloat(tip));
+            new_patron.push(meal_total.toFixed(2));
+            };
+            calc_total();
+        };
+        //runs create meal function in program
+        create_meal();
+
+        //adds complete patron profile (name, meal, tip amount) to the larger array of all patrons
+        all_patrons.push(new_patron);
+    }
+//    alert(all_patrons);
+
+    //displays one at a time what each person owes
+    for (i = 0; i < all_patrons.length; i++) {
+        alert(all_patrons[i][0] + ", you owe $" + all_patrons[i][3])
+    }
+
+};
+
+//runs the main program
+calculate();
+
+
+</script>
+</body>
+</html>
