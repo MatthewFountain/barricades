@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<script>
+var receipt = {chicken:8.00, soda:1.00, soup:3.00, wine:7.00};
+var grand_total_for_each = function() {
+    alert("Welcome to our tip calculator!");
+    var calc_subtotal = function () {
+        var subtotal = 0;
+        for (var i in receipt) {
+            subtotal += +receipt[i];
+        }
+        alert("The total bill is $" + subtotal.toFixed(2));
+        var party_of = prompt("How many are in your group? ");
+        var asktip = function () {
+            tip = prompt("How much of a tip do you want to leave? Enter as a decimal (i.e. 0.20 means 20% tip)");
+            return tip
+        };
+        var calctotal = function (subtotal, goodtip, partysize) {
+            grandtotal = (parseFloat(subtotal) * (1 + parseFloat(goodtip))) / parseFloat(party_of);
+            return grandtotal
+        };
+        var cheapalert = function () {
+            asktip();
+            if (tip < 0.15) {
+                alert("Don't be so cheap. Try again. Hint at least 0.15.");
+                asktip();
+                calctotal(subtotal, tip, party_of);
+                alert("Each person owes $" + grandtotal.toFixed(2))
+            }
+            else {
+                calctotal(subtotal, tip, party_of);
+                alert("Each person owes $" + grandtotal.toFixed(2))
+            }
+        };
+        if (party_of > 6) {
+            alert("Default tip will be 20%.");
+            calctotal(subtotal, 0.20, party_of);
+            alert("Each person owes $" + grandtotal.toFixed(2))
+        }
+        else {
+            cheapalert();
+        }
+    };
+    calc_subtotal();
+};
+grand_total_for_each()
+</script>
+</body>
+</html>
+
