@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<script>
+var receipt = {chicken:8.00, soda:1.00, soup:3.00, wine:7.00};
+var grand_total_for_each = function() {
+alert("Welcome to our tip calculator!");
+var subtotal = 0;
+for (var i in receipt) {
+subtotal += +receipt[i];
+}
+alert("The total bill is $" + subtotal.toFixed(2));
+var party_of = parseInt(prompt("How many are in your group? "));
+//branch to calculate even split
+var calc_even_split = function () {
+var asktip = function () {
+tip = prompt("How much of a tip do you want to leave? Enter as a decimal (i.e. 0.20 means 20% tip)");
+return tip
+};
+var calctotal = function (subtotal, tip, party_of) {
+grandtotal = (parseFloat(subtotal) * (1 + parseFloat(tip))) / parseFloat(party_of);
+return grandtotal
+};
+var cheapalert = function () {
+asktip();
+if (tip < 0.15) {
+alert("Don't be so cheap. Try again. Hint at least 0.15.");
+asktip();
+calctotal(subtotal, tip, party_of);
+alert("Each person owes $" + grandtotal.toFixed(2))
+}
+else {
+calctotal(subtotal, tip, party_of);
+alert("Each person owes $" + grandtotal.toFixed(2))
+}
+};
+if (party_of > 6) {
+var tip_check = function(){
+var other_tip = parseFloat(prompt("Minimum tip is 18%. Enter .18 or higher."));
+if (other_tip < 0.18){
+tip_check();
+}
+return other_tip;
+};
+var large_party_tip = tip_check();
+calctotal(subtotal, large_party_tip, party_of);
+alert("Each person owes $" + grandtotal.toFixed(2))
+}
+else {
+cheapalert();
+}
+};
+//branch to calculate itemized meal
+var calc_itemized = function () {
+//finds out how many people are in the meal party
+// var num_party = party_of;
+//creates array from 1 to n of people in the party
+var all_patrons = [];
+//loop to create an array of all patrons with their name, items of their meal, and how much they want to tip
+for (var party = 1; party < party_of + 1; party++) {
+var name = prompt("Patron number " + party + " what is your name?");
+var new_patron = [name, ];
+//function to find out which item(s) the patron ordered
+var create_meal = function () {
+additional = "y";
+var meal = [];
+while (additional === "y") {
+var item = prompt(name + ", what did you order?");
+//adds the cost of the item to the patron's array
+if (item in receipt) {
+meal.push(receipt[item]);
+additional = prompt("Anything else? y/n");
+}
+else {
+alert("That wasn't on the receipt!");
+}
+}
+//adds meal to the particular patron's array
+new_patron.push(meal);
+//asks patron how much they want to tip
+if (party_of > 6) {
+var itemized_tip_check = function(){
+var other_tip = parseFloat(prompt("Minimum tip is 18%. Enter .18 or higher."));
+if (other_tip < 0.18){
+itemized_tip_check();
+}
+return other_tip;
+};
+var large_party_tip = itemized_tip_check();
+new_patron.push(large_party_tip);}
+else{
+var tip = prompt(name + ", what percentage will you tip? (Use decimals, like .20) ");
+//adds tip to the particular patron's array
+new_patron.push(tip);
+}
+//function that calculates how much the customer owes
+var calc_total = function () {
+var subtotal = 0;
+for (var i in meal) {
+subtotal += +meal[i];
+}
+var meal_total = parseFloat(subtotal) * (1 + parseFloat(tip));
+new_patron.push(meal_total.toFixed(2));
+};
+calc_total();
+};
+//runs create meal function in program
+create_meal();
+//adds complete patron profile (name, meal, tip amount) to the larger array of all patrons
+all_patrons.push(new_patron);
+}
+// alert(all_patrons);
+//displays one at a time what each person owes
+for (i = 0; i < all_patrons.length; i++) {
+alert(all_patrons[i][0] + ", you owe $" + all_patrons[i][3])
+}
+};
+var question = parseInt(prompt("Would you like to (1) evenly split the bill, or (2) pay according to " +
+"what you ordered? Enter 1 or 2."));
+if (question === 1) {
+calc_even_split();
+}
+else {
+        calc_itemized()
+        }
+        };
+    grand_total_for_each()
+</script>
+</body>
+</html>
