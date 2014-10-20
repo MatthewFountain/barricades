@@ -1,21 +1,79 @@
+.blog-nav-item{
+
+    font-family: "PT Sans",serif;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 3px;
+
+}
+
+.blog-masthead{
+
+    background-color: #000000;
+    line-height: 30px;
+
+}
+
+
+#Homing_In_content {
+
+    margin-right: 1000px;
+
+}
+
+.phone img{
+
+    height: 490px;
+    width: 20%;
+}
+
+#graphic {
+
+   margin-left: 40%;
+   margin-top:2%;
+
+
+}
+
+#graphic:hover {
+
+ webkit-transform: scale(1, 1);
+-opacity:0;
+-webkit-opacity:0;
+
+}
+
 .center {
     width: 300px;
-    border: 4px solid black;
-    border-radius: 40px;
-    box-shadow: 10px 10px 5px #888888;
 }
 
 .center {
-    margin:0 auto;
-    width: 20%;
+    top: -425px;
+    left: 0;
+    position: relative;
+    z-index: 1;
+    margin:9% auto;
+    margin-top: 0;
+    background-color: #;
 
 }
 
 
-p {
+
+#services {
     font-family:"Titillium Web";
     font-size:125%;
     text-align:center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#mock-up {
+    position: relative;
+    font-family:"Titillium Web";
+    font-size:150%;
+    margin-left: 24%;
+    top: -460px;
 }
 
 table {
@@ -56,9 +114,6 @@ div {
     padding-bottom: 200px;
 }
 
-p {
-    display: none;
-}
 
 
     }
