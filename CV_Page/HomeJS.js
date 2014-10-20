@@ -37,6 +37,10 @@ $(document).ready(function() {
         $("#Homing_In_content").hide(500);
         $("#Contact_content").hide(500);
 
+     if ($(".work_samples_style").css("font-size") == "12px" ){
+		$(".photo").hide(500);
+	}
+
     });
 
     $("#Homing_In_tab").click(function() {
@@ -47,6 +51,10 @@ $(document).ready(function() {
         $("#Work_Samples_content").hide(500);
         $("#Homing_In_content").show(500);
         $("#Contact_content").hide(500);
+
+     if ($(".graphic").css("margin-left") == "6%" ){
+		$("#mock-up").hide(500);
+	}
 
     });
 

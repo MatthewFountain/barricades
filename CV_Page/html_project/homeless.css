@@ -98,22 +98,22 @@ img:hover {
 }
 
 
-@media (max-width: 800px){
+/*@media (max-width: 800px){*/
 
-div {
-    width: 100%;
-    border: none;
-    box-shadow: none;
-    padding-right: 165px;
-    padding-top: 110px;
-    margin: 600px;
-    }
+/*div {*/
+    /*width: 100%;*/
+    /*border: none;*/
+    /*box-shadow: none;*/
+    /*padding-right: 165px;*/
+    /*padding-top: 110px;*/
+    /*margin: 600px;*/
+    /*}*/
 
-.center {
-    table-size: 150%;
-    padding-bottom: 200px;
-}
+/*.center {*/
+    /*table-size: 150%;*/
+    /*padding-bottom: 200px;*/
+/*}*/
 
 
 
-    }
+    /*}*/
